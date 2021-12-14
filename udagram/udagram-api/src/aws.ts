@@ -2,13 +2,21 @@ import AWS = require("aws-sdk");
 import { config } from "./config/config";
 
 // Configure AWS
-const credentials = new AWS.SharedIniFileCredentials({ profile: "default" });
+const credentials = new AWS.Credentials(
+  {
+    accessKeyId: config.aws_access_key_id,
+    secretAccessKey: config.aws_secret_access_key
+  }
+);
 AWS.config.credentials = credentials;
 
 export const s3 = new AWS.S3({
-  signatureVersion: "v4",
-  region: config.aws_region,
-  params: { Bucket: config.aws_media_bucket },
+  apiVersion: "v4",
+  signatureVersion: 'v4',
+  endpoint: "https://s3.amazonaws.com",
+  params: {
+    Bucket: config.aws_media_bucket
+  },
 });
 
 // Generates an AWS signed URL for retrieving objects
