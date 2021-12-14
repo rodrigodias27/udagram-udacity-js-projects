@@ -9,7 +9,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "build:prod": "ng build --configuration=production",
+    "build:stg": "ng build --configuration=staging",
+    "deploy:prod": "chmod +x bin/deploy_prod.sh && bin/deploy_prod.sh",
+    "deploy:stg": "chmod +x bin/deploy_stg.sh && bin/deploy_stg.sh"
   },
   "private": true,
   "dependencies": {
