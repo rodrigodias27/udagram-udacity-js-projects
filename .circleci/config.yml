@@ -96,7 +96,7 @@ jobs:
           at: ~/udagram
       - run:
           name: Back-End Test
-          command: echo 'Test'
+          command: npm run backend:test
 
   build-and-deploy-backend-prod:
     executor: docker-node-awscli
