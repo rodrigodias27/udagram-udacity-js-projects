@@ -117,6 +117,19 @@ jobs:
             cd ~/udagram/udagram-api/www
             eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p $EB_PLATFORM
             eb use $EB_ENV_NAME_PROD
+            eb setenv ENV=$PROD_ENV \
+              POSTGRES_HOST=$PROD_POSTGRES_HOST \
+              POSTGRES_DB=$PROD_POSTGRES_DB \
+              POSTGRES_USERNAME=$PROD_POSTGRES_USERNAME \
+              POSTGRES_PASSWORD=$PROD_POSTGRES_PASSWORD \
+              POSTGRES_PORT=$PROD_POSTGRES_PORT \
+              AWS_BUCKET=$PROD_AWS_BUCKET \
+              AWS_ACCESS_KEY_ID=$PROD_AWS_ACCESS_KEY_ID \
+              AWS_SECRET_ACCESS_KEY=$PROD_AWS_SECRET_ACCESS_KEY \
+              AWS_REGION=$PROD_AWS_REGION \
+              JWT_SECRET=$PROD_JWT_SECRET \
+              URL=$PROD_URL \
+              PORT=$PROD_PORT
             eb deploy $EB_ENV_NAME_PROD
             eb status $EB_ENV_NAME_PROD
 
@@ -139,6 +152,19 @@ jobs:
             cd ~/udagram/udagram-api/www
             eb init $APPLICATION_NAME -r $AWS_DEFAULT_REGION -p $EB_PLATFORM
             eb use $EB_ENV_NAME_STG
+            eb setenv ENV=$STG_ENV \
+              POSTGRES_HOST=$STG_POSTGRES_HOST \
+              POSTGRES_DB=$STG_POSTGRES_DB \
+              POSTGRES_USERNAME=$STG_POSTGRES_USERNAME \
+              POSTGRES_PASSWORD=$STG_POSTGRES_PASSWORD \
+              POSTGRES_PORT=$STG_POSTGRES_PORT \
+              AWS_BUCKET=$STG_AWS_BUCKET \
+              AWS_ACCESS_KEY_ID=$STG_AWS_ACCESS_KEY_ID \
+              AWS_SECRET_ACCESS_KEY=$STG_AWS_SECRET_ACCESS_KEY \
+              AWS_REGION=$STG_AWS_REGION \
+              JWT_SECRET=$STG_JWT_SECRET \
+              URL=$STG_URL \
+              PORT=$STG_PORT
             eb deploy $EB_ENV_NAME_STG
             eb status $EB_ENV_NAME_STG
 
