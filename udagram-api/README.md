@@ -52,7 +52,7 @@ AWS_SECRET_ACCESS_KEY=<programatic access key>
 AWS_REGION=<region>
 
 # JWT CONFIG
-TOKEN_SECRET=t9fnhHSV8qds
+JWT_SECRET=t9fnhHSV8qds
 
 # APP
 URL=http://locahost
